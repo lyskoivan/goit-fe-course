@@ -15,7 +15,7 @@ ul li a {
 ul li a:hover {
     color: blue;
 } 
-main {
+main article {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
