@@ -15,9 +15,3 @@ ul li a {
 ul li a:hover {
     color: blue;
 } 
-main article {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
