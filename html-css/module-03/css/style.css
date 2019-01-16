@@ -20,6 +20,7 @@ ul li a {
     text-transform: uppercase; 
 }
 ul li a:hover {
+<<<<<<< HEAD
     color: #03a9f4;
 } 
 .start_block {
@@ -32,3 +33,7 @@ ul li a:hover {
 .main-sait  {
     text-align: center;
 }
+=======
+    color: blue;
+} 
+>>>>>>> e5fa785418cf30f8ee6951c5e4a606f9f057f3a6
