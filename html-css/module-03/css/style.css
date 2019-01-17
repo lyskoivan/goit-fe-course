@@ -1,33 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
-ul {
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300');
+.main_menu-list {
     list-style-type: none;
     text-align: center;
-    
-
 }
-ul li {
+.main_menu-list li {
     margin: 70px 60px;
     display: inline-block;
 }
-ul li a {
+.main_menu-list li a {
     font-family: 'Playfair Display', 'Times New Roman', serif;
     text-decoration: none;
     color: #626262;
-    font-size: 17px;
+    font-size: 14px;
     text-transform: uppercase; 
 }
-ul li a:hover {
+.main_menu-list li a:hover {
     color: #03a9f4;
 } 
-.start_block {
+.main_container  {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    text-align: center;
+    color: #626262;    
+}
+.main_container h2 {
+    font-size: 30px;
+    font-weight: normal;
+    padding-top: 10px;
+}
+.main_container p {
+    padding-top: 20px;
+    font-size: 14px;
+}
+.main_information-block {
     text-align: left;
     display: inline-block;
     max-width: 470px;
-    margin: 0px 15px;
+    margin: 50px 15px;
 }
-.main-sait  {
-    font-family: 'Playfair Display', 'Times New Roman', serif;
+.main_information-block img { 
+    min-width: 100%;
+}
+.text_ubuntu-light {
+    color: #b4ad9e;
+    font-family: 'Ubuntu', 'Roboto', sans-serif;
+}
+footer {
     text-align: center;
 }
-
-  
+.load-more_button {
+    display: inline-block;
+    margin: 20px 0px 40px 0px;
+    padding: 20px 34px;
+    border-width: 1px;
+    border-color: rgb(98, 98, 98);
+    border-style: solid;   
+}
+.load-more_button p {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    text-align: center;
+    color: #626262;
+    font-size: 20px;
+}
