@@ -1,9 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
 ul {
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-     */
     list-style-type: none;
     text-align: center;
     
@@ -14,26 +10,24 @@ ul li {
     display: inline-block;
 }
 ul li a {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
     text-decoration: none;
     color: #626262;
     font-size: 17px;
     text-transform: uppercase; 
 }
 ul li a:hover {
-<<<<<<< HEAD
     color: #03a9f4;
 } 
 .start_block {
+    text-align: left;
     display: inline-block;
     max-width: 470px;
-    margin: 10px 15px;
-
-    
+    margin: 0px 15px;
 }
 .main-sait  {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
     text-align: center;
 }
-=======
-    color: blue;
-} 
->>>>>>> e5fa785418cf30f8ee6951c5e4a606f9f057f3a6
+
+  
