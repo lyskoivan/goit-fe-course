@@ -54,15 +54,15 @@ footer {
 }
 .load-more_button {
     display: inline-block;
+    background-color: #ffffff;
     margin: 20px 0px 40px 0px;
     padding: 20px 34px;
     border-width: 1px;
     border-color: rgb(98, 98, 98);
-    border-style: solid;   
-}
-.load-more_button p {
+    border-style: solid;
+    cursor: pointer;
     font-family: 'Playfair Display', 'Times New Roman', serif;
     text-align: center;
     color: #626262;
-    font-size: 20px;
+    font-size: 20px;   
 }
