@@ -2,3 +2,122 @@
     margin: 0;
     padding: 0;
 }
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700,700i');
+/* font-family: 'Open Sans', sans-serif; */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900');
+/* font-family: 'Roboto', sans-serif; */
+body {
+    max-width: 1110px;
+}
+.main-logo {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 30px;
+    color: #555252;
+    text-transform: uppercase;
+    font-weight: 300;    
+}
+.main-logo:first-letter {
+    font-weight: bold;
+    color: #1abc9c;
+}
+header ul li a {
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #0f0101;
+    font-size: 14px;
+    font-weight: bold;
+}
+header ul li a:hover {
+    color: #1abc9c;
+}
+.header_title h1 {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 48px;
+    color: #515151;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+
+
+
+
+.main_item {
+    max-width: 255px; 
+    background-color: #e9f0fd;
+}
+.img_main-item {
+    min-height: 282px;
+    line-height: 250px;
+
+}
+.img_main-item img {
+    vertical-align: middle
+}
+
+.bottom_line-product {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 900;
+    text-decoration: none;
+}
+.product_name {
+    background-color: #323232;
+}
+.product_coast {
+    background-color: #8c8c8c;
+    opacity: 0.439;
+}
+.main_item:hover .product_coast {
+    background-color: #7fd9c7;
+    opacity: 0.439;
+}
+.main_item:hover .product_name {
+    background-color: #1abc9c;
+}
+
+.main_item a {
+    text-decoration: none;
+}
+
+
+
+
+.latest_news header h1 {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: #555252;
+    text-transform: uppercase;
+}
+.news_item {
+    max-width: 350px;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+}
+.news_item h2 {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.news_item p {
+    margin-top: 25px;
+    font-size: 14px;
+    font-weight: 300;
+}
+.news_button {
+    display: inline-block;
+    padding: 20px 40px;
+    background-color: #4ec6ab;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 16px 0px;
+}
+.news_button a {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
