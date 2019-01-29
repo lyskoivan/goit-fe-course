@@ -111,7 +111,9 @@ html {
 .main_item:not(:nth-child(4n)) {
     margin-right: 30px;
 }
-
+.img_main-item {
+    line-height: 250px;
+}
 .img_main-item img {
     vertical-align: middle
 }
