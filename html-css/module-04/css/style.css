@@ -127,17 +127,21 @@ html {
     color: #ffffff;
     font-weight: 900;
     text-decoration: none;
+    text-transform: uppercase;
 }
 .product_name {
     background-color: #323232;
+    padding: 12px;
 }
 .product_coast {
+    position: absolute;
+    right: 0;
+    bottom: 0;
     background-color: #8c8c8c;
-    opacity: 0.439;
+    padding: 12px;
 }
 .main_item:hover .product_coast {
     background-color: #7fd9c7;
-    opacity: 0.439;
 }
 .main_item:hover .product_name {
     background-color: #1abc9c;
