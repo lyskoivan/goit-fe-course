@@ -22,8 +22,12 @@ html {
 .clearfix {
     overflow: auto;
   }
+.main_header {
+    display: flex;
+    justify-content: space-between;
+}
 .main_logo {
-    display: inline-block;
+    
 }
 .main_logo a {
     font-family: 'Montserrat', 'Roboto', sans-serif;
@@ -43,14 +47,34 @@ html {
     margin-right: 55px;
 }
 .main_list li a {
+    position: relative;
     font-family: 'Montserrat', 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #95e1d3;
     text-decoration: none;
     text-transform: uppercase;
+    transition: color 0.2s linear;
+}
+.main_list li a::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    height: 4px;
+    bottom: -10px;
+    width: 0%;
+    background-color: #f38181;
+    transition: width 0.2s linear;
+   
+}
+.main_list li:hover a::after {
+    width: 100%;
+}
+.main_list li:hover a {
+    color: #f38181;
 
 }
+
 
 
 .main_container {
