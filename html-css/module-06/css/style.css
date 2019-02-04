@@ -1,0 +1,99 @@
+html {
+    box-sizing: border-box;
+}
+*, 
+*::before, *::after {
+    box-sizing: inherit;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i');
+/* font-family: 'Montserrat', 'Roboto', sans-serif; */
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+/* font-family: 'Kaushan Script', cursive; */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300i,400');
+/* font-family: 'Roboto', 'Montserrat', sans-serif; */
+.wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.clearfix {
+    overflow: auto;
+  }
+.main_logo {
+    display: inline-block;
+}
+.main_logo a {
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 30px;
+    color: #95e1d3;
+    cursor: pointer;
+}
+.main_list {
+    display: flex;
+}
+.main_list li {
+    list-style-type: none;
+}
+.main_list li:not(:last-child) {
+    margin-right: 55px;
+}
+.main_list li a {
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #95e1d3;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+
+
+.main_container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.main_items h3 {
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.main_items p {
+    font-family: 'Roboto', 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #999999;
+}
+
+
+.main_text {
+    text-align: center;
+}
+.main_text h1 {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 24px;
+    color: #333333;
+}
+.main_text h2 {
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #333333;
+}
+.main_text p {
+    font-family: 'Roboto', 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #999999;
+}
+
+
