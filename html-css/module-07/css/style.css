@@ -54,7 +54,7 @@ html {
     justify-content: space-between;
 }
 .main_logo {
-    font-family: 'Charm', 'Roboto', sans-serif;
+    font-family: 'Charm', 'Crimson Text', serif;
     font-size: 28px;
     color: #fed136;
 }
@@ -91,7 +91,8 @@ html {
     font-weight: bold;
 }
 .main_text p {
-    font-family: 'Crimson Text', 'Roboto', sans-serif;
+    padding-top: 10px;
+    font-family: 'Crimson Text', 'Lora', serif;
     font-style: italic;
     font-size: 16px;
     color: #777777;
@@ -119,7 +120,7 @@ html {
 }
 .main_block-text p {
     margin-top: 15px;
-    font-family: 'Roboto Slab', 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', 'Lora', serif;
     color: #777777;
     font-size: 14px;
     font-weight: 400;
@@ -150,8 +151,66 @@ html {
     font-weight: bold;
 }
 .footer_text p {
-    font-family: 'Crimson Text', 'Roboto', sans-serif;
+    font-family: 'Crimson Text', 'Lora', serif;
     font-style: italic;
+    padding-top: 10px;
     font-size: 16px;
     color: #777777;
+}
+.contact_form form input, textarea {
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #bbbbbb;
+    font-weight: bold;
+    border: none;
+    
+}
+.contact_form input[type=text], 
+input[type=email] {
+    padding: 20px 0px 20px 20px;
+    width: 455px;
+}
+.contact_form input:focus:valid {
+    outline: 2px solid #07b929;
+}
+.contact_form input:focus:invalid {
+    outline: 2px solid #e71111;
+}
+.contact_form textarea:focus:valid {
+    outline: 2px solid #07b929;
+}
+.contact_form textarea:focus:invalid {
+    outline: 2px solid #e71111;
+}
+.contact_form input[type=submit] {
+    outline: none;
+    color: #ffffff;
+    margin-top: 30px;
+    border: none;
+    background-color: #fed136;
+    padding: 25px 45px 25px 45px;
+    text-align: center;
+    cursor: pointer;
+}
+.contact_form textarea {
+    height: 210px;
+    padding-left: 20px;
+    padding-top: 18px;
+    width: 455px;
+    resize: none;
+}
+form {
+    text-align: center;
+}
+.form_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.form_wrapper-block1 {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
 }
