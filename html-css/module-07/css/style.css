@@ -54,6 +54,7 @@ html {
     justify-content: space-between;
 }
 .main_logo {
+    cursor: pointer;
     font-family: 'Charm', 'Crimson Text', serif;
     font-size: 28px;
     color: #fed136;
