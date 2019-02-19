@@ -106,9 +106,15 @@ html {
     width: 290px;
     text-align: center;
 }
-.main_block-img img {
+.block-img_wrapper {
+    width: 75px;
+    height: 75px;
+    display: inline-block;
     border: 3px solid #fed136;
-    padding: 10px;
+    border-radius: 380%;
+}
+.main_block-img img {
+    padding: 15px;
 }
 .main_block-text h2 {
     margin-top: 20px;
