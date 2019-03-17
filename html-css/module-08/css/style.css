@@ -17,7 +17,7 @@ html {
 header {
     height: 540px;
     background-position: center;
-    background-image: url(../img/top.png);
+    background-image: url(../img/topd.png);
     opacity: 0.9;
     background-color: #1a1915;
 }
@@ -163,4 +163,73 @@ button {
     color: #ff4e50;
     font-weight: bold;
     font-family: 'Montserrat','Open Sans', sans-serif;
+}
+
+@media (min-width: 768px) {
+    .main_wrapper {
+        max-width: 768px;
+    }
+    header {
+        height: 700px;
+    }
+    .header_top {
+        margin-bottom: 156px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .header_sait-logo {
+        margin-bottom: 0px;
+        margin-top: 30px;
+        order: -1;
+    }
+    .header_login-form button {
+        margin-bottom: 0px;
+    }
+    .header_button button {
+        padding: 12px 30px;
+    }
+    .header_text h1 {
+        font-size: 52px;
+    }
+    .header_text h2 {
+        font-size: 24px;
+    }
+    .header_login-form button {
+        margin-top: 38px;
+    }
+    .main_card-container {
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        max-width: 492px;
+    }
+    .main_card-container ul {
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-between;
+    }
+    .main_card-container ul li:nth-child(n+3) {
+        margin-top: 55px;
+    }
+    .main_text {
+        margin-bottom: 30px;
+    }
+    .bottom_button {
+        margin-top: 0px;
+    }
+}
+@media (min-width: 942px) {
+    .main_wrapper {
+        max-width: 942px;
+    }
+    .main_card-container {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        max-width: 942px;
+    }
+    .main_card-container ul li:nth-child(n+3) {
+        margin-top: 0px;
+    }
 }
