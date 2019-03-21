@@ -10,10 +10,7 @@ html {
     padding: 0;
 }
 @import url('https://fonts.googleapis.com/css?family=Montserrat:700|Roboto:300');
-.main_wrapper {
-    margin: 0 auto;
-    max-width: 320px;
-}
+
 header {
     height: 540px;
     background-position: center;
@@ -22,11 +19,11 @@ header {
     background-color: #1a1915;
 }
 button {
+    cursor: pointer;
     background: none;
     border: none;
-}
-.header_top {
-    text-align: center;
+    outline: none;
+    text-decoration: none;
 }
 .header_sait-logo {
     margin-bottom: 35px;
@@ -38,10 +35,7 @@ button {
     font-weight: bold;
     font-family: 'Montserrat','Open Sans', sans-serif;
 }
-.header_text {
-    text-align: center;
-}
-.header_text h1 {
+.title-wrapper h1 {
     margin-bottom: 24px;
     font-size: 30px;
     color: #ffffff;
@@ -49,7 +43,7 @@ button {
     text-transform: uppercase;
     font-family: 'Montserrat','Open Sans', sans-serif;
 }
-.header_text h2 {
+.title-wrapper h2 {
     margin: 0px 50px;
     text-decoration: none;
     font-size: 20px;
@@ -58,15 +52,9 @@ button {
     font-weight: lighter;
     margin-bottom: 18px;
 }
-.header_button {
-    text-align: center;
-}
 .header_login-form button {
-    outline: none;
     margin-bottom: 124px;
     margin-top: 20px;
-    cursor: pointer;
-    text-decoration: none;
     font-size: 14px;
     color: #ffffff;
     font-weight: bold;
@@ -81,8 +69,6 @@ button {
     border-color: #ffffff;
 }
 .header_button button {
-    outline: none;
-    cursor: pointer;
     background-color: #ff4e50;
     padding: 12px 50px;
     border-radius: 20px;
@@ -91,39 +77,40 @@ button {
     font-weight: bold;
     font-family: 'Montserrat','Open Sans', sans-serif;
 }
-.main_text h2 {
+.title {
     margin-top: 68px;
-    text-align: center;
     font-size: 22px;
     color: #333333;
     font-weight: bold;
     font-family: 'Montserrat','Open Sans', sans-serif;
 }
-.main_card-container ul {
-    height: 970px;
+
+
+
+.cards {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    list-style-type: none;
+    align-items: center;
+    padding: 15px;
 }
-.main_card {
-    max-width: 220px;
-    margin: 0 auto;
-    text-align: center;
-}
-.card_img {
-    position: relative;
-}
-.card_img-icon {
-    position: absolute;
-    bottom: 0;
-    right: 32px;
 
+.picture-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
 }
-.card_img-icon img {
+
+.photo { 
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.icon {
     border-radius: 100%;
-    border: 4px solid #ffffff;
-    padding: 10px;
+    padding: 12px;
+    border: 5px solid white;
 }
 .img-icon1 img {
     background-color: #ff4e50;
@@ -137,14 +124,21 @@ button {
 .img-icon4 img {
     background-color: #4e73db;
 }
-.main_card h3 {
+
+.icon-wrapper {
+    position: absolute;
+    height: 30px;
+    bottom: 0;
+    right: 0;
+}
+.cards h3 {
     margin-top: 20px;
     font-size: 14px;
     color: #333333;
     font-weight: bold;
     font-family: 'Montserrat','Open Sans', sans-serif;
 }
-.main_card p {
+.cards p {
     margin-top: 15px;
     font-size: 14px;
     color: #333333;
@@ -152,16 +146,13 @@ button {
     font-weight: 200;
 }
 .bottom_button {
-    text-align: center;
     margin-top: 16px;
     margin-bottom: 56px;
 }
 .bottom_button button {
-    outline: none;
     border: 2px solid #ff4e50;
     padding: 14px 76px;
     border-radius: 40px;
-    cursor: pointer;
     font-size: 14px;
     color: #ff4e50;
     font-weight: bold;
@@ -169,16 +160,11 @@ button {
 }
 
 @media (min-width: 768px) {
-    .main_wrapper {
-        max-width: 768px;
-    }
     header {
         height: 700px;
     }
     .header_top {
         margin-bottom: 156px;
-        display: flex;
-        justify-content: space-around;
     }
     .header_sait-logo {
         margin-bottom: 0px;
@@ -200,39 +186,17 @@ button {
     .header_login-form button {
         margin-top: 38px;
     }
-    .main_card-container {
-        margin: 0 auto;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        max-width: 492px;
+
+    .container {
+        max-width: 748px;
     }
-    .main_card-container ul {
-        height: auto;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-content: space-between;
-    }
-    .main_card-container ul li:nth-child(n+3) {
-        margin-top: 55px;
-    }
-    .main_text {
-        margin-bottom: 30px;
-    }
-    .bottom_button {
-        margin-top: 0px;
+    
+    .page-title {
+        margin-top: 0;
     }
 }
-@media (min-width: 942px) {
-    .main_wrapper {
+@media (min-width: 992px) {
+    .container {
         max-width: 942px;
-    }
-    .main_card-container {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        max-width: 942px;
-    }
-    .main_card-container ul li:nth-child(n+3) {
-        margin-top: 0px;
     }
 }

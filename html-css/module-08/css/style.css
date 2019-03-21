@@ -137,20 +137,7 @@ button {
 .img-icon4 img {
     background-color: #4e73db;
 }
-.main_card h3 {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #333333;
-    font-weight: bold;
-    font-family: 'Montserrat','Open Sans', sans-serif;
-}
-.main_card p {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #333333;
-    font-family: 'Roboto','Open Sans', sans-serif;
-    font-weight: 200;
-}
+
 .bottom_button {
     text-align: center;
     margin-top: 16px;
