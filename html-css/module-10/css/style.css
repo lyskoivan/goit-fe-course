@@ -141,15 +141,15 @@ html {
     padding: 0 120px;
     margin-top: 90px;
 }
-.main_info {
+.content__container {
     margin-top: 90px;
     display: flex;
     justify-content: space-between;
 }
-.main_infot-team {
+.content__article {
     position: relative;
 }
-.team_img-gradient {
+.content__link--gradient {
     position: absolute;
     top: 0;
     z-index: 2;
@@ -161,10 +161,10 @@ html {
     width: 380px;
     background-image: linear-gradient(to bottom right, #f38181, #fce38a);
 }
-.main_infot-team:hover .team_img-gradient {
+.content__article:hover .content__link--gradient {
     opacity: 0.9;
 }
-.team_img-bacground {
+.content__link--bacground {
     z-index: -1;
     position: absolute;
     top: 0;
@@ -173,7 +173,7 @@ html {
     width: 380px;
     background-color: #95e1d3;
 }
-.team_social {
+.content__list {
     opacity: 0;
     z-index: 3;
     display: flex;
@@ -184,40 +184,40 @@ html {
     top: 200px;
     transition: opacity 0.2s linear;
 }
-.team_social li {
+.list__element {
     background-color: #fce38a;
     list-style-type: none;
     text-align: center;
     transition: background-color 0.2s linear; 
 }
-.team_social-wrap {
+.team__social--wrapper {
     height: 56px;
     width: 56px;
 }
-.team_social li:not(:last-child) {
+.list__element:not(:last-child) {
     margin-right: 1px;
 }
-.team_social li a {
+.list__element--link {
     width: 100%;
     height: 100%;
     text-align: center;
     text-decoration: none;
 }
-.team_social li a img {
+.list__element--img {
     padding-top: 16px;
 }
-.team_social li:hover {
+.list__element:hover {
     background-color: #95e1d3;
 }
-.main_infot-team:hover .team_social,
-.main_infot-team:focus .team_social {
+.content__article:hover .content__list,
+.content__article:focus .content__list {
     opacity: 1;
 }
-.main_infot-team a {
+.content__link {
     text-decoration: none;
     text-align: center;
 }
-.main_infot-team a h3 {
+.content__link--title {
     padding-top: 26px;
     font-family: 'Montserrat', 'Roboto', sans-serif;
     text-transform: uppercase;
@@ -225,7 +225,7 @@ html {
     font-size: 14px;
     color: #333333;
 }
-.main_infot-team a p {
+.content__link--text{
     padding-top: 8px;
     font-family: 'Roboto', 'Montserrat', sans-serif;
     font-size: 15px;
@@ -233,17 +233,20 @@ html {
     font-style: italic;
     color: #999999;
 }
-.main_infot-team .team_img img {
+.content__link--img {
     transition: transform 0.2s linear; 
 }
 
-.main_infot-team:hover .team_img-gradient {
+.content__article:hover .content__link--gradient {
     transform: translate(-10px, -10px);
  }
-.main_infot-team:hover .team_img img {
+.content__article:hover .content__link--img {
    transform: translate(-10px, -10px);
 }
-.main_footer {
+
+
+
+.footer__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -251,13 +254,13 @@ html {
     border-top: 2px solid #e5e5e5;
     padding: 25px 0px;
 }
-.footer_text p {
+.footer__wrapper--text {
     font-family: 'Montserrat', 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #333333;
 }
-.footer_tex-red {
+.footer__text--link {
     font-family: 'Montserrat', 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 14px;
@@ -265,7 +268,7 @@ html {
     color: #f38181;
 }
 
-.footer_form input[type=email] {
+.footer__form .footer__form--input[type=email] {
     font-family: 'Roboto', 'Montserrat', sans-serif;
     font-size: 15px;
     font-weight: 300;
@@ -278,7 +281,7 @@ html {
     margin: 0px;
     border: 1px solid #e7e7e7;
 }
-.footer_form input[type=submit] {
+.footer__form .footer__form--input[type=submit] {
     float: right;
     font-family: 'Montserrat', 'Roboto', sans-serif;
     font-weight: 700;
