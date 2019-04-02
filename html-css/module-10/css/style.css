@@ -15,6 +15,8 @@ html {
 /* font-family: 'Kaushan Script', cursive; */
 @import url('https://fonts.googleapis.com/css?family=Roboto:300i,400');
 /* font-family: 'Roboto', 'Montserrat', sans-serif; */
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+
 .main__wrapper {
     max-width: 1200px;
     margin: 0 auto;
@@ -22,8 +24,12 @@ html {
 .clearfix {
     overflow: auto;
   }
+.header {
+    background:linear-gradient( to top, rgba(252,227,138,0.9) 0%, rgba(243,129,129,0.9) 100%),
+    url('../img/falcon.png') center center;
+}
 .header__navigation {
-    margin-top: 25px;
+    padding-top: 25px;
     display: flex;
     justify-content: space-between;
 }
@@ -32,9 +38,10 @@ html {
     font-weight: 700;
     text-decoration: none;
     font-size: 30px;
-    color: #95e1d3;
+    color: #ffffff;
     cursor: pointer;
 }
+
 .navigation__list {
     display: flex;
     align-items: flex-end;
@@ -46,14 +53,23 @@ html {
     margin-right: 55px;
 }
 .navigation__list--link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     font-family: 'Montserrat', 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #95e1d3;
+    color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     transition: color 0.2s linear;
+}
+.navigation__list--svg {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+    transition: fill 0.2s linear;
 }
 .navigation__list--link::after {
     content: "";
@@ -62,14 +78,48 @@ html {
     height: 4px;
     bottom: -10px;
     width: 0%;
-    background-color: #f38181;
+    background-color: #fce38a;
     transition: width 0.2s linear; 
 }
 .navigation__list--element:hover .navigation__list--link::after {
     width: 100%;
 }
 .navigation__list--element:hover .navigation__list--link {
-    color: #f38181;
+    color: #fce38a;
+}
+.navigation__list--element:hover .navigation__list--svg {
+    fill: #fce38a;
+}
+.header__info {
+    color: #ffffff;
+    text-align: center;
+}
+.header__info--subtitle {
+    text-transform: uppercase;
+    font-size: 150px;
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-weight: bold;
+    padding-bottom: 120px;
+    line-height: 1;
+}
+.header__info--title {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 72px;
+    margin-top: 168px;
+    padding-bottom: 60px;
+}
+.header__info--button {
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 230px;
+    outline: none;
+    border: 3px solid #ffffff;
+    background: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 10px 28px;
 
 }
 .content__text--title {
@@ -192,6 +242,9 @@ html {
 }
 .team__social--wrapper {
     height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 56px;
 }
 .list__element:not(:last-child) {
@@ -204,10 +257,16 @@ html {
     text-decoration: none;
 }
 .list__element--img {
-    padding-top: 16px;
+    width: 20px;
+    fill: #f38181;
+    height: 20px;
+    transition: fill 0.2s linear;
 }
 .list__element:hover {
-    background-color: #95e1d3;
+    background-color: #f38181;
+}
+.list__element:hover .list__element--img {
+    fill: #ffffff;
 }
 .content__article:hover .content__list,
 .content__article:focus .content__list {
@@ -298,3 +357,8 @@ html {
     background-color: #95e1d3;
 
 }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .header{
+     background:linear-gradient( to top, rgba(252,227,138,0.9) 0%, rgba(243,129,129,0.9) 100%),
+                url(../img/falcon@2x.png) center center;
+ }
