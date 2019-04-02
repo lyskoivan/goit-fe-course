@@ -137,6 +137,21 @@ button {
 .img-icon4 img {
     background-color: #4e73db;
 }
+.main_card h3 {
+    padding-top: 12px;
+    font-size: 14px;
+    color: #333333;
+    font-weight: bold;
+    font-family: 'Montserrat','Open Sans', sans-serif;
+}
+.main_card p {
+    padding-top: 18px;
+    font-size: 14px;
+    color: #666666;
+    font-family: 'Roboto','Open Sans', sans-serif;
+    font-weight: lighter;
+    margin-bottom: 18px;
+}
 
 .bottom_button {
     text-align: center;
