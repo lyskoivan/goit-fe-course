@@ -1,6 +1,9 @@
-/* 'use strict'
-let city = "Kyiv";
-const time = 26;
-var x = 5;
-let test = 5;
-alert(x == test); */
+'use strict'
+const userInput = prompt('Введите число');
+const parsedUserInput = Number(userInput);
+if ( Number.isNaN(parsedUserInput) === true ){
+    console.log ('Ввели нечисло');
+}
+else {
+    console.log ('Ввели число')
+}
