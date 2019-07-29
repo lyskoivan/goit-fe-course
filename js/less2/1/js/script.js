@@ -12,7 +12,7 @@ do {
         alert('Было введено не число, попробуйте еще раз');
     }
 }
-while (input != null);
+while (input !== null);
 if (numbers.length === 0) {
     console.log(total);
 }

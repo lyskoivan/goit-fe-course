@@ -12,11 +12,7 @@
 */
 
 const users = ["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"];
-for (const user of users) {
-    let i = 1;
-    console.log(`${i} - ${user}`);
-    i += 1;
+const max = users.length;
+for (let i = 0; i < max; i += 1) {
+    console.log(`${i + 1} - ${users[i]}`);
 }
-const arr = [1,2,3,4,5];
-const arrTest = arr.slice(3);
-console.log(arrTest);

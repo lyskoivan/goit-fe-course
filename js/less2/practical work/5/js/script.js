@@ -1,35 +1,21 @@
 'use strict'
 /*
-* Есть массив имен пользователей
-* Используя методы массива, последовательно выполнить указанные операции
+  Напиши скрипт, который выбирает из массива numbers 
+  все числа, которые больше чем значение переменной num, 
+  записывая эти числа в массив matched.
+      
+  В результате в массиве matched будут все подходяшие числа.
+      
+  PS: используй цикл for или for...of и оператор ветвления if
 */
 
-const users = ["Mango", "Poly", "Ajax", "Chelsey"];
-
-// Удалить первый элемент массива
-users.splice(0,1);
-console.log(users); // ["Poly", "Ajax", "Chelsey"]
-
-// Удалить последний элемент массива
-users.pop();
-console.log(users); // ["Poly", "Ajax"]
-
-// Добавить в начало массива пользователя "Lux"
-users.unshift('Lux');
-console.log(users); // ["Lux", "Poly", "Ajax"]
-
-// Добавить в конец массива два пользователя ("Jay" и "Kiwi") за одну операцию
-users.push('Jay','Kiwi');
-console.log(users); //  ["Lux", "Poly", "Ajax", "Jay", "Kiwi"]
-
-// Удалить из массива элемент хранящийся в переменной userToDelete
-const userToDelete = "Ajax";
-const userIndex = users.indexOf(userToDelete);
-users.splice(userIndex,1);
-console.log(users); //  ["Lux", "Poly", "Jay", "Kiwi"]
-
-// Добавить в массив пользователя "Kong", перед пользователем хранящейся в переменной userToInsertBefore
-const userToInsertBefore = "Jay";
-const userIndexBefore = users.indexOf(userToInsertBefore);
-users.splice(userIndexBefore,0,'Kong');
-console.log(users); //  ["Lux", "Poly", "Kong", "Jay", "Kiwi"]
+const numbers = [1, 3, 17, 5, 9, 14, 8, 14, 34, 18, 26];
+const num = 10;
+const matched = [];
+const maxNum = numbers.length
+for (let i = 0; i < maxNum; i += 1) {
+    if (numbers[i] > num) {
+        matched.push(numbers[i]);
+    }
+}
+console.log(matched); // [17, 14, 14, 32, 18, 26]
