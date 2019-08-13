@@ -11,15 +11,25 @@
   ни с одним из числовых аргументов.
 */
 
-const filterFromArray = function(arr) {
-  
+const filterFromArray = function(arr, ...secondArr) {
+  const args = arr.concat(secondArr);
+  const finalArr = [];
+  for (let i = 0; i < args.length; i += 1) {
+    if (!finalArr.includes(args[i])) {
+      finalArr.push(args[i]);
+    }
+    else {
+      const arrDelete = finalArr.indexOf(args[i]);
+      finalArr.splice(arrDelete, 1);
+    }
+  }
+  console.log(finalArr);
 }; 
 
 // Вызовы функции для проверки
-console.log(
   filterFromArray([1, 2, 3, 4, 5], 2, 4)
-); // [1, 3, 5]
+ // [1, 3, 5]
 
-console.log(
+
   filterFromArray([12, 4, 3, 8, 17], 3, 29, 18, 4)
-); // [12, 8, 17]
+ // [12, 8, 17]
