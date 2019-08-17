@@ -14,11 +14,9 @@ const Notepad = function Notepad(notes = []) {
     notes.push(note);
     return note;
   };
-  this.findIdIndex = function(id) {
-    return notes.indexOf(this.findNoteById(id));
-  };
   this.deleteNote = function(id) {
-    notes.splice(notepad.findIdIndex(id), 1);
+    const noteId = notes.indexOf(this.findNoteById(id))
+    notes.splice(notepad.noteId, 1);
   };
   this.updateNoteContent = function(id, updatedContent) {
     const note = this.findNoteById(id);
@@ -79,12 +77,10 @@ const initialNotes = [
 ];
 
 const notepad = new Notepad(initialNotes);
-
 /*
  * Смотрю что у меня в заметках после инициализации
  */
 console.log('Все текущие заметки: ', notepad.getNotes());
-
 /*
  * Добавляю еще 2 заметки и смотрю что получилось
  */
