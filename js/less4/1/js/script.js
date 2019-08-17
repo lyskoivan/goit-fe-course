@@ -1,17 +1,4 @@
 'use strict'
-/*
-Создай объект notepad для работы с массивом заметок. Каждая заметка это объект следующего формата:
-
-id: string | integer
-title: string
-body: string
-priority: integer [0-2]
-id - уникальный идентификатор объекта, чтобы можно было найти его в коллекции, строка.
-title - заголовок заметки, строка.
-body - текст заметки, строка.
-priority - значение приоритета, от 0 (низкий) до 2 (высокий).
-Вот карта приоритетов, используй ее.
-*/
 const Priority = {
   LOW: 0,
   NORMAL: 1,
@@ -20,7 +7,7 @@ const Priority = {
 const notepad = {
   notes: [],
   getNotes() {
-    return Object.values(this.notes);
+    return this.notes;
   },
   findNoteById(id) {
     for (const note of this.notes) {
@@ -40,45 +27,28 @@ const notepad = {
     this.notes.splice(notepad.findIdIndex(id), 1);
   },
   updateNoteContent(id, updatedContent) {
-    const updateNote = Object.assign(this.findNoteById(id), updatedContent);
-    return updateNote;
-
-    /*
-     * Обновляет контент заметки
-     * updatedContent - объект с полями вида {имя: значение, имя: значение}
-     * Свойств в объекте updatedContent может быть произвольное количество
-     *
-     * Принимает: идентификатор заметки и объект, полями которого надо обновить заметку
-     * Возвращает: обновленную заметку
-     */
+    const note = this.findNoteById(id);
+    if(!note) return;
+    note.title = updatedContent.title;
+    return note;
   },
   updateNotePriority(id, priority) {
-    this.findNoteById(id).priority = priority;
-    return this.findNoteById(id);
-    /*
-     * Обновляет приоритет заметки
-     *
-     * Принимает: идентификатор заметки и ее новый приоритет
-     * Возвращает: обновленную заметку
-     */
+    const note = this.findNoteById(id);
+    if(!note) return;
+    note.priority = priority;
+    return note;
   },
   filterNotesByQuery(query) {
+    const queryToLower = query.toLowerCase();
     const arrNotes = [];
     for (const note of this.notes) {
       const titleLower = note.title.toLowerCase();
       const bodyLower = note.body.toLowerCase();
-      if (bodyLower.includes(query) || titleLower.includes(query)) {
+      if (bodyLower.includes(queryToLower) || titleLower.includes(queryToLower)) {
         arrNotes.push(note);
       }
     }
     return arrNotes;
-    /*
-     * Фильтрует массив заметок по подстроке query.
-     * Если значение query есть в заголовке или теле заметки - она подходит
-     *
-     * Принимает: подстроку для поиска в title и body заметки
-     * Возвращает: новый массив заметок, контент которых содержит подстроку
-     */
   },
   filterNotesByPriority(priority) {
     const arrNotes = [];
@@ -88,21 +58,9 @@ const notepad = {
       }
     }
     return arrNotes;
-    /*
-     * Фильтрует массив заметок по значению приоритета
-     * Если значение priority совпадает с приоритетом заметки - она подходит
-     *
-     * Принимает: приоритет для поиска в свойстве priority заметки
-     * Возвращает: новый массив заметок с подходящим приоритетом
-     */
   },
 };
 
-
-
-/*
- * Добавляю 4 заметки и смотрю что получилось
- */
 notepad.saveNote({
   id: 'id-1',
   title: 'JavaScript essentials',
@@ -137,9 +95,6 @@ notepad.saveNote({
 
 console.log('Все текущие заметки: ', notepad.getNotes());
 
-/*
- * Зима уже близко, пора поднять приоритет на покупку одежды
- */
 notepad.updateNotePriority('id-4', Priority.NORMAL);
 
 console.log(
@@ -147,9 +102,6 @@ console.log(
   notepad.getNotes(),
 );
 
-/*
- * Решил что фреймворки отложу немного, понижаю приоритет
- */
 notepad.updateNotePriority('id-3', Priority.LOW);
 
 console.log(
@@ -157,33 +109,21 @@ console.log(
   notepad.getNotes(),
 );
 
-/*
- * Решил отфильтровать заметки по слову html
- */
 console.log(
   'Отфильтровали заметки по ключевому слову "html": ',
   notepad.filterNotesByQuery('html'),
 );
 
-/*
- * Решил отфильтровать заметки по слову javascript
- */
 console.log(
   'Отфильтровали заметки по ключевому слову "javascript": ',
   notepad.filterNotesByQuery('javascript'),
 );
 
-/*
- * Хочу посмотреть только заметки с нормальным приоритетом
- */
 console.log(
   'Отфильтровали заметки по нормальному приоритету: ',
   notepad.filterNotesByPriority(Priority.NORMAL),
 );
 
-/*
- * Обновим контент заметки с id-3
- */
 notepad.updateNoteContent('id-3', {
   title: 'Get comfy with React.js or Vue.js',
 });
@@ -193,8 +133,5 @@ console.log(
   notepad.getNotes(),
 );
 
-/*
- * Повторил HTML и CSS, удаляю запись c id-2
- */
 notepad.deleteNote('id-2');
 console.log('Заметки после удаления с id -2: ', notepad.getNotes());
