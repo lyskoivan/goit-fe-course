@@ -1,19 +1,21 @@
 'use strict'
 const Notepad = function Notepad(notes = []) {
   this.notes = notes;
+};
+
   Notepad.prototype.getNotes = function() {
-    return notes;
+    return this.notes;
   };
   Notepad.prototype.findNoteById = function (id) {
     return this.notes.find(note => note.id === id);
   };
   Notepad.prototype.saveNote = function(note) {
-    notes.push(note);
+    this.notes.push(note);
     return note;
   };
   Notepad.prototype.deleteNote = function(id) {
-    const noteId = notes.indexOf(this.findNoteById(id))
-    notes.splice(noteId, 1);
+    const noteId = this.notes.indexOf(this.findNoteById(id))
+    this.notes.splice(noteId, 1);
   };
   Notepad.prototype.updateNoteContent = function(id, updatedContent) {
     const elem = this.findNoteById(id);
@@ -30,7 +32,7 @@ const Notepad = function Notepad(notes = []) {
   Notepad.prototype.filterNotesByQuery = function(query) {
     const queryToLower = query.toLowerCase();
     const arrNotes = [];
-    for (const note of notes) {
+    for (const note of this.notes) {
       const titleLower = note.title.toLowerCase();
       const bodyLower = note.body.toLowerCase();
       if (bodyLower.includes(queryToLower) || titleLower.includes(queryToLower)) {
@@ -41,14 +43,13 @@ const Notepad = function Notepad(notes = []) {
   };
   Notepad.prototype.filterNotesByPriority = function(priority) {
     const arrNotes = [];
-    for (const note of notes) {
+    for (const note of this.notes) {
       if (note.priority === priority) {
         arrNotes.push(note);
       }
     }
     return arrNotes;
   };
-};
 
 Notepad.Priority = {
   LOW: 0,
