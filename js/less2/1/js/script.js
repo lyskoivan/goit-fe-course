@@ -5,8 +5,9 @@ let total = 0;
 
 do {
     input = prompt('Введите число');
-    if (!Number.isNaN(Number(input))) {
-        numbers.push(input);
+    const num = Number(input);
+    if (!isNaN(num)) {
+        numbers.push(num);
     }
     else {
         alert('Было введено не число, попробуйте еще раз');
@@ -15,6 +16,6 @@ do {
 while (input !== null);
 
 for (const value of numbers) {
-    total = Number(total) + Number(value);
+    total +=  value;
 }
 console.log(`Общая сумма чисел равна ${total}`);
