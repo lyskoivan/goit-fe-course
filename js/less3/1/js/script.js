@@ -1,11 +1,6 @@
 'use strict'
 const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
-const isLoginValid = function(login) {
-
-  if (login.length < 4 || login.length > 16) {
-    return false;
-  }
-};
+const isLoginValid = login => login.length < 4 || login.length > 16;
 const isLoginUnique = function(allLogins, login) {
   return allLogins.includes(login);
 };
