@@ -148,7 +148,7 @@ const getUniqueSkills = users => {
     }
     return skill;
   }, [])
-  .sort();
+  .sort((a, b) => a.localeCompare(b, 'en'));
   return skills;
 };
 
