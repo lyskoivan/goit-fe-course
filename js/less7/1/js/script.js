@@ -86,55 +86,38 @@ const users = [
   },
 ];
 // -------------------------------------------------------------------------------------- 1!
-const getAllNames = users => {
-  const names = users.map(user => user.name);
-  return names;
-};
+//const getAllNames = users => users.map(user => user.name);
+const getAllNames = users => users.map(({name}) => name);
 
 console.log(getAllNames(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
 
 // -------------------------------------------------------------------------------------- 2!
-const getUsersByEyeColor = (users, color) => {
-  const eyeColor = users.filter(user => user.eyeColor === color);
-  return eyeColor;
-};
+const getUsersByEyeColor = (users, color) => users.filter(user => user.eyeColor === color);
 
 console.log(getUsersByEyeColor(users, 'blue')); 
 // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]
 
 // -------------------------------------------------------------------------------------- 3!
-const getUsersByGender = (users, gender) => {
-  const userGender = users.filter(user => user.gender === gender);
-  return userGender;
-};
+const getUsersByGender = (users, gender) => users.filter(user => user.gender === gender);
 
 console.log(getUsersByGender(users, 'male')); 
 // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
 
 // -------------------------------------------------------------------------------------- 4!
-const getInactiveUsers = users => {
-  const usersActive = users.filter(user => !user.isActive);
-  return usersActive;
-};
+const getInactiveUsers = users => users.filter(user => !user.isActive);
 
 console.log(getInactiveUsers(users)); 
 // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
 
 // -------------------------------------------------------------------------------------- 5!
-const getUserByEmail = (users, email) => {
-  const userEmail = users.find(user => user.email === email);
-  return userEmail;
-};
+const getUserByEmail = (users, email) => users.find(user => user.email === email);
 
 console.log(getUserByEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
 console.log(getUserByEmail(users, 'elmahead@omatom.com')); // {объект пользователя Elma Head}
 
 // -------------------------------------------------------------------------------------- 6!
-const getUsersWithAge = (users, min, max) => {
-  const usersAge = users.filter(user => min < user.age && user.age < max);
-  return usersAge;
-};
+const getUsersWithAge = (users, min, max) => users.filter(user => min < user.age && user.age < max);
 
 console.log(getUsersWithAge(users, 20, 30)); 
 // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
@@ -142,19 +125,13 @@ console.log(getUsersWithAge(users, 30, 40));
 // [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
 
 // -------------------------------------------------------------------------------------- 7!
-const getTotalBalance = users => {
-  const balance = users.reduce((total, user) => total + user.balance,0);
-  return balance;
-};
+const getTotalBalance = users => users.reduce((total, user) => total + user.balance,0);
 
 console.log(getTotalBalance(users)); 
 // 20916
 
 // -------------------------------------------------------------------------------------- 8!
-const getUsersByFriend = (users, name) => {
-  const friends = users.filter(user => user.friends.includes(name));
-  return friends;
-};
+const getUsersByFriend = (users, name) => users.filter(user => user.friends.includes(name));
 
 console.log(getUsersByFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
 console.log(getUsersByFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
@@ -179,11 +156,8 @@ console.log(getUniqueSkills(users));
 // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
 
 // -------------------------------------------------------------------------------------- additional task Two!    
-const getNamesSortedByFriendsCount = users => {
-  const sortFriends = users.sort((firstUser, secondUser) => firstUser.friends.length - secondUser.friends.length)
+const getNamesSortedByFriendsCount = users => users.sort((firstUser, secondUser) => firstUser.friends.length - secondUser.friends.length)
   .map(user => user.name);
-  return sortFriends;
-};
 
 console.log(getNamesSortedByFriendsCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
