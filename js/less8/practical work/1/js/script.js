@@ -11,8 +11,8 @@
     Категория: Животные
     Количество вложенных li: 4
 */
-const getListInfo = category => {
-  const findElement = document.querySelector('.categories ');
-  return findElement;
-};
-console.log(getListInfo());
+
+const category = document.querySelector('.categories ');
+const childEl = category.firstElementChild.firstChild;
+console.log(childEl);
+console.log(childEl.firstChild);

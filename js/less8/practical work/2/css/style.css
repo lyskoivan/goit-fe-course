@@ -1,3 +1,6 @@
-body {
-    background-color: black;
-}
+.redText {
+    color: red;
+  }
+  .blueText {
+    color: blue;
+  }

@@ -1,27 +1,18 @@
 'use strict'
-/*      
-  Напиши функцию getGuestsOlderThan(guests, age), где 
-  guests - массив объектов гостей, age - предел возраста для сортировки. 
+/*
+  Есть список с классом .size-filter из произвольного 
+  количества чекбоксов, каждый из которых содержит 
+  размер одежды в фильтре.
   
-  Функция возвращает массив объектов значение свойства age которых больше чем параметр age.
+  Напишите функцию collectInputData(inputs), которая
+  принимает 1 параметр inputs - массив тех инпутов
+  у которых состояние checked.
   
-  PS: обязательно используй перебирающие методы массивов, никаких for!
+  Возвращает массив значений атрибута value.
 */
-const getGuestsOlderThan = (guests, age) => {
-  const guestsAge = guests.filter(guest => guest.age > age);
-  return guestsAge;
-};
+const sizeInputs = document.querySelectorAll('.size-filter input');
+const checkedInputsArr = [...sizeInputs];
+const checkedInputs = checkedInputsArr.filter(elm => elm.hasAttribute('checked'));
 
-const guests = [
-  { name: "Mango", age: 20, isActive: true },
-  { name: "Poly", age: 18, isActive: false },
-  { name: "Ajax", age: 30, isActive: true },
-  { name: "Chelsey", age: 45, isActive: false }
-];
-
-// Вызовы функции для проверки
-console.log(getGuestsOlderThan(guests, 25)); // массив из 2-х объектов Ajax и Chelsey
-
-console.log(getGuestsOlderThan(guests, 35)); // [{name: 'Chelsey', age: 45, isActive: false}]
-
-console.log(getGuestsOlderThan(guests, 55)); // []
+const collectInputData = inputs => inputs.map(elm => elm.getAttribute('value'));
+console.log(collectInputData(checkedInputs));

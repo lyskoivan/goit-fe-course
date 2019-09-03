@@ -1,22 +1,52 @@
 'use strict'
 /*
-  Напиши функию getActiveGuests(guests), принимающую массив объектов гостей. 
+  Напишите скрипт для создания галлереи изображений. 
   
-  Функция должна возвращать массив объектов гостей, значение поля isActive которых true.
-         
-  PS: обязательно используй перебирающие методы массивов, никаких for!
+  - На вкладке HTML уже есть ul.gallery.
+  - Используйте массив объектов для создания тегов img вложенных в li
+  - Оформление по вкусу, можно и не делать, достаточно чтобы каждое 
+    изображение было 300px по ширине
+  - Добавьте все элементы галлереи в ul.gallery
 */
-const getActiveGuests = (guests) => {
-  const guestsList = guests.filter(guest => guest.isActive);
-  return guestsList;
-};
 
-const guests = [
-  { name: "Mango", age: 20, isActive: true },
-  { name: "Poly", age: 18, isActive: false },
-  { name: "Ajax", age: 30, isActive: true },
-  { name: "Chelsey", age: 45, isActive: false }
+const galleryItems = [
+  {
+    url:
+      "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat"
+  },
+  {
+    url:
+      "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish"
+  },
+  {
+    url:
+      "https://images.pexels.com/photos/1216482/pexels-photo-1216482.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Two Brown Hen and One Red Rooster"
+  },
+  {
+    url:
+      "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running"
+  },
+  {
+    url:
+      "https://images.pexels.com/photos/1316294/pexels-photo-1316294.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Macaw Birds"
+  },
+  {
+    url:
+      "https://images.pexels.com/photos/41178/africa-animal-big-carnivore-41178.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "2 Lion on Grass Field during Daytime"
+  }
 ];
-
-// Вызовы функции для проверки
-console.log(getActiveGuests(guests)); // массив из 2-х объектов Mango и Ajax
+const galleryLink = document.querySelector('.gallery');
+const createImgElement = arr => arr.map(elm => {
+  const createImg = document.createElement('img');
+  createImg.src = elm.url;
+  createImg.alt = elm.alt;
+  createImg.classList.add('imgStyle');
+  return createImg;
+});
+galleryLink.append(...createImgElement(galleryItems));

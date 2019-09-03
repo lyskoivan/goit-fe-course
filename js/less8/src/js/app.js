@@ -1,4 +1,59 @@
 'use strict';
+class Notepad {
+  constructor(notes = []) {
+    this._notes = notes;
+  }
+  static get Priority() {
+    return  {LOW: 0, NORMAL: 1, HIGH: 2,};
+}
+  get notes() {
+    return this._notes;
+  }
+  findNoteById(id) {
+    return this._notes.find(note => note.id === id);
+  }
+  saveNote(note) {
+    this._notes.push(note);
+    return note;
+  }
+  deleteNote(id) {
+    const noteId = this._notes.indexOf(this.findNoteById(id));
+    this._notes.splice(noteId, 1);
+  }
+  updateNoteContent(id, updatedContent) {
+    const elem = this.findNoteById(id);
+    if (elem) {
+      Object.assign(elem, updatedContent);
+    }
+  }
+  updateNotePriority(id, priority) {
+    const note = this.findNoteById(id);
+    if(!note) return;
+    note.priority = priority;
+    return note;
+  }
+  filterNotesByQuery(query) {
+    const queryToLower = query.toLowerCase();
+    const arrNotes = [];
+    for (const note of this._notes) {
+      const titleLower = note.title.toLowerCase();
+      const bodyLower = note.body.toLowerCase();
+      if (bodyLower.includes(queryToLower) || titleLower.includes(queryToLower)) {
+        arrNotes.push(note);
+      }
+    }
+    return arrNotes;
+  }
+  filterNotesByPriority(priority) {
+    const arrNotes = [];
+    for (const note of this._notes) {
+      if (note.priority === priority) {
+        arrNotes.push(note);
+      }
+    }
+    return arrNotes;
+  }
+};
 
 const PRIORITY_TYPES = {
   LOW: 0,
@@ -50,3 +105,84 @@ const initialNotes = [
     priority: PRIORITY_TYPES.LOW,
   },
 ];
+
+const notepad = new Notepad(initialNotes);
+
+const createNoteContent = note => {
+
+  const noteContent = document.createElement('div');
+  noteContent.classList.add('note__content');
+
+  const title = document.createElement('h2');
+  title.classList.add('note__title');
+  title.textContent = note.title;
+
+  const body = document.createElement('p');
+  body.textContent = note.body
+
+  noteContent.append(title, body);
+
+  return noteContent;
+};
+
+const createActionButton = (dataAction, iconType) => {
+  const button = document.createElement('button');
+  button.classList.add('action');
+  button.dataset.action = dataAction;
+
+  const buttonIcon = document.createElement('i');
+  buttonIcon.classList.add('material-icons', 'action__icon');
+  buttonIcon.textContent = iconType;
+
+  button.append(buttonIcon);
+
+  return button;
+};
+
+
+const createNoteFooter = note => {
+  const footer = document.createElement('footer');
+  footer.classList.add('note__footer');
+
+  const prioritySection = document.createElement('section');
+  prioritySection.classList.add('note__section');
+
+  const prioritySpan = document.createElement('span');
+  prioritySpan.classList.add('note__priority');
+  prioritySpan.textContent = `Priority: ${note.priority}`;
+
+  const editSection = document.createElement('section');
+  editSection.classList.add('note__section');
+
+  prioritySection.append(createActionButton(NOTE_ACTIONS.DECREASE_PRIORITY, ICON_TYPES.ARROW_DOWN),
+  createActionButton(NOTE_ACTIONS.INCREASE_PRIORITY, ICON_TYPES.ARROW_UP), 
+  prioritySpan);
+
+  editSection.append(createActionButton(NOTE_ACTIONS.EDIT,ICON_TYPES.EDIT),
+  createActionButton(NOTE_ACTIONS.DELETE,ICON_TYPES.DELETE));
+
+  footer.append(prioritySection, editSection);
+
+  return footer;
+};
+
+const createListItem = note => {
+  const listItem = document.createElement('li');
+  listItem.classList.add('note-list__item');
+  listItem.dataset.id = `${note.id}`;
+
+  const noteDiv = document.createElement('div');
+  noteDiv.classList.add('note');
+
+  noteDiv.append(createNoteContent(note), createNoteFooter(note));
+  listItem.append(noteDiv);
+  return listItem;
+};
+
+const renderNoteList = (listRef, notes) => {
+  const allNotes = notes.map(note => createListItem(note));
+  listRef.append(...allNotes);
+};
+
+const noteListRef = document.querySelector('.note-list');
+renderNoteList(noteListRef, initialNotes);

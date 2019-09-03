@@ -1,33 +1,44 @@
 'use strict'
 /*
-  Напишите функию findGuestById(guests, id), принимающую 
-  guests - массив объектов гостей, id - идентификатор (число). 
+  Создайте функцию createMovieCard(), которая 
+  создает и возвращает DOM-узел карточки кинофильма.
   
-  Функция должна возвращать объект гостя с совпадающим id.
+  Разметка с классами есть на вкладке HTML.
+  Стили на вкладке CSS.
   
-  PS: обязательно используй перебирающие методы массивов, никаких for!
+  Используйте createElement для создания узлов.
+  Добавьте классы и атрибуты.
 */
-const getGuestById = (guests, id) => {
-    const guestsId = guests.find(guest => guest.id === id);
-    return guestsId;
-};
+const createMovieCard = () => {
+  const cardDiv = document.createElement('div');
+  cardDiv.classList.add('movie');
 
-const guests = [
-    { id: 1, name: 'Mango', age: 20 },
-    { id: 2, name: 'Poly', age: 18 },
-    { id: 3, name: 'Ajax', age: 30 },
-    { id: 4, name: 'Chelsey', age: 45 }
-  ];
+  const cardMainImg = document.createElement('img');
+  cardMainImg.classList.add('movie__image');
+  cardMainImg.setAttribute('src', 'http://image.tmdb.org/t/p/w500/rPdtLWNsZmAtoZl9PK7S2wE3qiS.jpg');
   
-  // Вызовы функции для проверки
-  console.log(
-    getGuestById(guests, 3)
-  ); // {id: 3, name: 'Ajax', age: 30}
-  
-  console.log(
-    getGuestById(guests, 1)
-  ); // {id: 1, name: 'Mango', age: 20}
-  
-  console.log(
-    getGuestById(guests, 5)
-  ); // undefined
+  const cardDivWrapper = document.createElement('div');
+  cardDivWrapper.classList.add('movie__body');  
+
+  const cardTitle = document.createElement('h2');
+  cardTitle.classList.add('movie__title');
+  cardTitle.textContent = 'The Godfather';
+
+  const cardDescription = document.createElement('p');
+  cardDescription.classList.add('movie__description');
+  cardDescription.textContent = 'Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the';
+
+  const cardDate = document.createElement('p');
+  cardDate.classList.add('movie__date');
+  cardDate.textContent = 'Released: 1972-03-14';
+
+  const cardRating = document.createElement('p');
+  cardRating.classList.add('movie__rating');
+  cardRating.textContent = 'Rating: 8.6'
+
+  cardDiv.append(cardMainImg, cardDivWrapper);
+  cardDivWrapper.append(cardTitle, cardDescription, cardDate, cardRating);
+  return cardDiv;
+};
+const body = document.querySelector('body');
+body.prepend(createMovieCard());

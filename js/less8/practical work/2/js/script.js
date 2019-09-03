@@ -1,26 +1,14 @@
 'use strict'
 /*
-  Напиши функию getPropValues(arr, prop), принимающую 
-  параметры arr - массив, и prop - имя ключа в объекте. 
-  
-  Функция должна возвращать массив всех значений этого ключа из arr.
-  
-  PS: обязательно использу перебирающие методы массивов, никаких for!
+  Дан список с классом .list
+	- Найдите первого потомка списка и сделайте его текст красного цвета
+	- Найдите последнего потомка списка и сделайте его текст синего цвета
 */
-
-const guests = [
-  { name: "Mango", age: 20, isActive: true },
-  { name: "Poly", age: 18, isActive: false },
-  { name: "Ajax", age: 30, isActive: true },
-  { name: "Chelsey", age: 45, isActive: false }
-];
-const getPropValues = (arr, prop) => {
-  const values = arr.map(value => value[prop]);
-  return values;
-
+const changeTextColor = (changeList, firstElmClass, lastElmClass) => {
+  const getList = document.querySelector(changeList);
+  const firstListElm = getList.firstElementChild;
+  const lastListElm = getList.lastElementChild;
+  firstListElm.classList.add(firstElmClass);
+  lastListElm.classList.add(lastElmClass);
 };
-
-// Вызовы функции для проверки
-console.log( getPropValues(guests, "name") ); // ['Mango', 'Poly', 'Ajax', 'Chelsey']
-console.log( getPropValues(guests, "age") ); // [20, 18, 30, 45]
-console.log( getPropValues(guests, "isActive") ); // [true, false, true, false]
+changeTextColor('.list', 'redText', 'blueText');
