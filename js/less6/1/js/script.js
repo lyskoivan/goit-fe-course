@@ -34,24 +34,10 @@ class Notepad {
   }
   filterNotesByQuery(query) {
     const queryToLower = query.toLowerCase();
-    const arrNotes = [];
-    for (const note of this._notes) {
-      const titleLower = note.title.toLowerCase();
-      const bodyLower = note.body.toLowerCase();
-      if (bodyLower.includes(queryToLower) || titleLower.includes(queryToLower)) {
-        arrNotes.push(note);
-      }
-    }
-    return arrNotes;
+    return this._notes.filter(note => note.body.toLowerCase().includes(queryToLower) || note.title.toLowerCase().includes(queryToLower));
   }
   filterNotesByPriority(priority) {
-    const arrNotes = [];
-    for (const note of this._notes) {
-      if (note.priority === priority) {
-        arrNotes.push(note);
-      }
-    }
-    return arrNotes;
+    return this._notes.filter(note => note.priority === priority);
   }
 }
 
