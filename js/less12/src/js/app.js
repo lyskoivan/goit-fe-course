@@ -20,9 +20,11 @@ const generateNote = (title, body) => {
     body : body,
     priority: PRIORITY_TYPES.LOW,
   };
-  notepad.saveNote(newNote);
-  refs.noteListRef.insertAdjacentHTML('beforeend', createProductCard(newNote));
-  localStorage.setItem('items', JSON.stringify(notepad.notes));
+  notepad.saveNote(newNote).then(savedNote => {
+    refs.noteListRef.insertAdjacentHTML('beforeend', createProductCard(savedNote));
+    localStorage.setItem('items', JSON.stringify(notepad.notes));
+  });
+
 };
 
 const handleCreateForm = (event) => {
@@ -38,21 +40,20 @@ const handleCreateForm = (event) => {
 };
 
 const removeListItem = (item) => {
-  notepad.deleteNote(item.dataset.id);
-  item.remove();
+  notepad.deleteNote(item.dataset.id).then(remNote => {
+    item.remove();
+    localStorage.setItem('items', JSON.stringify(notepad.notes));
+  });
 };
 
 const handleRemoveNote = ({target}) => {
   if (target.tagName !== 'I' || target.textContent !== 'delete') return;
   removeListItem(target.closest('li'));
   notyf.success(NOTIFICATION_MESSAGES.NOTE_DELETED_SUCCESS);
-  localStorage.setItem('items', JSON.stringify(notepad.notes));
 };
 
 const handleFilterList = ({target}) => {
-  refs.noteListRef.innerHTML = '';
-  const updateMarkUp = createProductListMarkup(notepad.filterNotesByQuery(target.value));
-  refs.noteListRef.insertAdjacentHTML('beforeend', updateMarkUp);
+  notepad.filterNotesByQuery(target.value).then((res) => createProductListMarkup(res));
 };
 
 MicroModal.init();

@@ -9,34 +9,65 @@ export default class Notepad {
       return this._notes;
     }
     findNoteById(id) {
-      return this._notes.find(note => note.id === id);
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this._notes.find(note => note.id === id);
+          resolve(id);
+        },300);
+      });
     }
     saveNote(note) {
-      this._notes.push(note);
-      return note;
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this._notes.push(note);
+          resolve(note);
+        }, 300);
+      });
     }
     deleteNote(id) {
-      const noteId = this._notes.indexOf(this.findNoteById(id));
-      this._notes.splice(noteId, 1);
-    }
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this._notes = this._notes.filter(note => note.id !== id);
+          resolve(id);
+        }, 300);
+      });
+  };
     updateNoteContent(id, updatedContent) {
-      const elem = this.findNoteById(id);
-      if (elem) {
-        Object.assign(elem, updatedContent);
-      }
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.findNoteById(id).then(elem => {
+            if (elem) Object.assign(elem, updatedContent);
+          })
+        },300);
+      });
     }
     updateNotePriority(id, priority) {
-      const note = this.findNoteById(id);
-      if(!note) return;
-      note.priority = priority;
-      return note;
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.findNoteById(id).then(note => {
+            if(!note) return;
+            note.priority = priority;
+            resolve(note);
+          })
+        },300);
+      });
     }
     filterNotesByQuery(query) {
-      const queryToLower = query.toLowerCase();
-      return this._notes.filter(note => note.body.toLowerCase().includes(queryToLower) || note.title.toLowerCase().includes(queryToLower));
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const queryToLower = query.toLowerCase();
+          const res = this._notes.filter(note => note.body.toLowerCase().includes(queryToLower) || note.title.toLowerCase().includes(queryToLower));
+          resolve(res);
+        }, 300);
+      }) 
     }
     filterNotesByPriority(priority) {
-      return this._notes.filter(note => note.priority === priority);
+      return new Promise((reslove, reject) => {
+        setTimeout(() => {
+          this._notes.filter(note => note.priority === priority);
+          reslove(priority);
+        }, 300);
+      });
     }
   };
   
