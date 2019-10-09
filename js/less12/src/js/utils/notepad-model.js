@@ -27,7 +27,9 @@ export default class Notepad {
     deleteNote(id) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
+          console.log(this._notes);
           this._notes = this._notes.filter(note => note.id !== id);
+          console.log(this._notes);
           resolve(id);
         }, 300);
       });

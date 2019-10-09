@@ -4,8 +4,6 @@ const notyf = new Notyf();
 
 const API_URL = 'http://localhost:3000/notes/';
 
-
-
 export const getFetchNotes = () => {
     return fetch(API_URL)
     .then((response) => {
@@ -18,6 +16,7 @@ export const getFetchNotes = () => {
         console.log(err);
     });
 };
+
 export const getFetchDeleteNote = id => {
     return fetch(API_URL + id, {
         method : 'DELETE',
@@ -32,10 +31,15 @@ export const getFetchDeleteNote = id => {
     .catch(err => console.log(err));
 };
 
-export const getFetchCreateNote = id => {
+export const getFetchCreateNote = ({title, body, priority}) => {
+    const postToAdd = {
+        title,
+        body,
+        priority
+      };
     return fetch(API_URL, {
         method: 'POST',
-        body: JSON.stringify(id),
+        body: JSON.stringify(postToAdd),
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -51,10 +55,16 @@ export const getFetchCreateNote = id => {
 
 };
 
-export const getFetchUpdateeNote = id => {
-    return fetch(API_URL, {
+export const getFetchUpdateeNote = ({id, title, body, priority}) => {
+    const postToUpdate = {
+        id,
+        title,
+        body,
+        priority
+      };
+    return fetch(API_URL + id, {
         method: 'PATCH',
-        body: JSON.stringify(id),
+        body: JSON.stringify(postToUpdate),
         headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       }})

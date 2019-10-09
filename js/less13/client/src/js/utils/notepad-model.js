@@ -1,72 +1,65 @@
+import * as api from '../../services/api.js';
+
 export default class Notepad {
     constructor(notes = []) {
       this._notes = notes;
     }
     static get Priority() {
       return  {LOW: 0, NORMAL: 1, HIGH: 2,};
-  }
-    get notes() {
-      return this._notes;
     }
+    get() {
+      return api.getFetchNotes().then( notes => { 
+        this._notes = notes; 
+        return this._notes;
+      })
+      .catch(err => console.log(err));
+      }
     findNoteById(id) {
       return new Promise((resolve, reject) => {
-        setTimeout(() => {
           this._notes.find(note => note.id === id);
           resolve(id);
-        },300);
       });
     }
     saveNote(note) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this._notes.push(note);
-          resolve(note);
-        }, 300);
-      });
+      return api.getFetchCreateNote(note).then(note => {
+      this._notes.push(note);
+      return note;
+      })
+      .catch(err => console.log(err));
     }
     deleteNote(id) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this._notes = this._notes.filter(note => note.id !== id);
-          resolve(id);
-        }, 300);
+      return api.getFetchDeleteNote(id).then(() => {
+        this._notes = this._notes.filter(note => note.id !== id);
+        return id;
       });
-  };
+    };
     updateNoteContent(id, updatedContent) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this.findNoteById(id).then(elem => {
-            if (elem) Object.assign(elem, updatedContent);
-          })
-        },300);
+      return api.getFetchUpdateeNote(updatedContent).then(elem => {
+        this.findNoteById(id).then(elem => {
+          if (elem) Object.assign(elem, updatedContent);
+      })
       });
     }
     updateNotePriority(id, priority) {
       return new Promise((resolve, reject) => {
-        setTimeout(() => {
           this.findNoteById(id).then(note => {
             if(!note) return;
             note.priority = priority;
             resolve(note);
           })
-        },300);
       });
     }
     filterNotesByQuery(query) {
       return new Promise((resolve, reject) => {
-        setTimeout(() => {
           const queryToLower = query.toLowerCase();
           const res = this._notes.filter(note => note.body.toLowerCase().includes(queryToLower) || note.title.toLowerCase().includes(queryToLower));
           resolve(res);
-        }, 300);
       }) 
     }
     filterNotesByPriority(priority) {
       return new Promise((reslove, reject) => {
-        setTimeout(() => {
           this._notes.filter(note => note.priority === priority);
           reslove(priority);
-        }, 300);
       });
     }
   };

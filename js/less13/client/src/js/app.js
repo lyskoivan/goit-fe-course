@@ -3,34 +3,23 @@ import MicroModal from 'micromodal';
 import Notepad from './utils/notepad-model.js';
 import {PRIORITY_TYPES, refs, NOTIFICATION_MESSAGES} from './utils/constants.js';
 import {createProductCard, createProductListMarkup} from './utils/view.js';
-import  {getFetchNotes, getFetchDeleteNote, getFetchCreateNote, getFetchUpdateeNote} from '../services/api.js';
-const shortid = require('shortid');
+
 const notyf = new Notyf();
 
 const notepad = new Notepad();
-getFetchNotes().then(notes => {
-  notes.map(note => notepad.saveNote(note));
-});
-
-console.log(notepad);
-
-const handleOpenModal = () => {
-  MicroModal.show('note-editor-modal');
-};
+notepad.get().then(initialNotes => createProductListMarkup(initialNotes));
 
 const generateNote = (title, body) => {
   const newNote = {
-    id : shortid.generate(),
-    title : title,
-    body : body,
-    priority: PRIORITY_TYPES.LOW,
+  title : title,
+  body : body,
+  priority: PRIORITY_TYPES.LOW,
   };
+  
   notepad.saveNote(newNote).then(savedNote => {
-    refs.noteListRef.insertAdjacentHTML('beforeend', createProductCard(savedNote));
-    getFetchCreateNote(savedNote);
+  refs.noteListRef.insertAdjacentHTML('beforeend', createProductCard(savedNote));
   });
-
-};
+  };
 
 const handleCreateForm = (event) => {
   event.preventDefault()
@@ -46,7 +35,6 @@ const handleCreateForm = (event) => {
 const removeListItem = (item) => {
   notepad.deleteNote(item.dataset.id).then(remNote => {
     item.remove();
-    getFetchDeleteNote(remNote);
   });
 };
 
@@ -57,6 +45,10 @@ const handleRemoveNote = ({target}) => {
 
 const handleFilterList = ({target}) => {
   notepad.filterNotesByQuery(target.value).then((res) => createProductListMarkup(res));
+};
+
+const handleOpenModal = () => {
+  MicroModal.show('note-editor-modal');
 };
 
 MicroModal.init();
