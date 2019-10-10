@@ -7,40 +7,53 @@ export default class Notepad {
     static get Priority() {
       return  {LOW: 0, NORMAL: 1, HIGH: 2,};
     }
-    get() {
-      return api.getFetchNotes().then( notes => { 
-        this._notes = notes; 
-        return this._notes;
-      })
-      .catch(err => console.log(err));
+    async get() {
+      try {
+        const response = await api.getFetchNotes();
+        const data = this._notes = response;
+        return data;
       }
+      catch(err) {
+        throw err;
+      }
+  }
     findNoteById(id) {
       return new Promise((resolve, reject) => {
           this._notes.find(note => note.id === id);
           resolve(id);
       });
     }
-    saveNote(note) {
-      return api.getFetchCreateNote(note).then(note => {
-      this._notes.push(note);
-      return note;
-      })
-      .catch(err => console.log(err));
+    async saveNote(note) {
+      try {
+        const response = await api.getFetchCreateNote(note);
+        this._notes.push(response);
+        return response;
+      }
+      catch(err) {
+        throw err;
+      }
     }
-    deleteNote(id) {
-      return api.getFetchDeleteNote(id).then(() => {
+    async deleteNote(id) {
+      try {
+        const response = await api.getFetchDeleteNote(id);
         this._notes = this._notes.filter(note => note.id !== id);
         return id;
-      })
-      .catch(err => console.log(err));
-    };
-    updateNoteContent(id, updatedContent) {
-      return api.getFetchUpdateeNote(updatedContent).then(elem => {
+      }
+      catch(err) {
+        throw err;
+      }
+    }
+    async updateNoteContent(id, updatedContent) {
+      try {
+        const response = await api.getFetchUpdateeNote(updatedContent);
         this.findNoteById(id).then(elem => {
           if (elem) Object.assign(elem, updatedContent);
       })
-      })
-      .catch(err => console.log(err));
+      return response;
+      }
+      catch(err) {
+        throw err;
+      }
     }
     updateNotePriority(id, priority) {
       return new Promise((resolve, reject) => {
